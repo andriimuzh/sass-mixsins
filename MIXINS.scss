@@ -1,15 +1,21 @@
-// placeholder 
+//                 PLACEHOLDER
 
-@mixin holder {
+@mixin placeholder {
   &.placeholder { @content; }
   &:-moz-placeholder { @content; }
   &::-moz-placeholder { @content; }
   &:-ms-input-placeholder { @content; }
   &::-webkit-input-placeholder { @content; }
 }
+//usage
+&:focus {
+    @include placeholder {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+}
 
-
-// size in rem
+//             SIZE IN REM
 
 @function rem($pixels, $context: $mainFontSize) {
   @if (unitless($pixels)) {
@@ -22,3 +28,5 @@
 
   @return $pixels / $context * 1rem;
 }
+//usage
+font-size: rem(25);
